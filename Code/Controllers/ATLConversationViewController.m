@@ -768,6 +768,9 @@ static NSInteger const ATLPhotoActionSheet = 1000;
         } else {
             ATLMediaAttachment *mediaAttachment = [ATLMediaAttachment mediaAttachmentWithAssetURL:assetURL thumbnailSize:ATLDefaultThumbnailSize];
             [self.messageInputToolbar insertMediaAttachment:mediaAttachment withEndLineBreak:YES];
+            [self.view resignFirstResponder];
+            [self.messageInputToolbar.textInputView becomeFirstResponder];
+            [self.view setNeedsUpdateConstraints];
         }
     });
 }
