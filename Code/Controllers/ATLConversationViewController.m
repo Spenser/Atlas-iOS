@@ -737,7 +737,11 @@ static NSInteger const ATLPhotoActionSheet = 1000;
             case 2:
                 [self displayImagePickerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
                 break;
-                
+            case 3:
+                [self.view resignFirstResponder];
+                [self.messageInputToolbar.textInputView becomeFirstResponder];
+                [self.view setNeedsUpdateConstraints];
+                break;
             default:
                 break;
         }
